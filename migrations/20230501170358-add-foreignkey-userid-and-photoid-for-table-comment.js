@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.addColumn('Comments', 'Userid', {
+    await queryInterface.addColumn('Comments', 'UserId', {
       type: Sequelize.INTEGER,
     })
     await queryInterface.addColumn('Comments', 'PhotoId', {
@@ -11,7 +11,7 @@ module.exports = {
     })
 
     await queryInterface.addConstraint('Comments', {
-      fields: ['Userid'],
+      fields: ['UserId'],
       type: 'foreign key',
       name : 'user_id_fk',
       references : {
