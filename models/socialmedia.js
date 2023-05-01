@@ -10,12 +10,33 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      socialmedia.belongsTo(models.user, {foreignKey: 'userId'})
     }
   }
   socialmedia.init({
-    name: DataTypes.STRING,
-    social_media_url: DataTypes.TEXT
+    name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : 'Social media name cannot be empty'
+        }
+      }
+    },
+    social_media_url: {
+      type : DataTypes.TEXT,  
+      validate : {
+        isUrl : {
+          args : true,
+          msg : 'Social media URL must be in URL format'
+        },
+        notEmpty : {
+          args : true,
+          msg : 'Social media URL cannot be empty'
+        
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'socialmedia',

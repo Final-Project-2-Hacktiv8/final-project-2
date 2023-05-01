@@ -3,12 +3,12 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.addColumn('SocialMedia', 'userId', {
+    await queryInterface.addColumn('Socialmedia', 'UserId', {
       type: Sequelize.INTEGER,
     })
 
-    await queryInterface.addConstraint('SocialMedia', {
-      fields : ['userId'],
+    await queryInterface.addConstraint('Socialmedia', {
+      fields : ['UserId'],
       type : 'foreign key',
       name : 'user_id_fk',
       references : {
@@ -27,7 +27,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-      await queryInterface.removeConstraint('SocialMedia', 'user_id_fk')
-      await queryInterface.removeColumn('SocialMedia', 'userId')
+      await queryInterface.removeConstraint('Socialmedia', 'user_id_fk')
+      await queryInterface.removeColumn('Socialmedia', 'UserId')
   }
 };

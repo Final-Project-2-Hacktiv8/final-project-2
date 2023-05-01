@@ -3,15 +3,15 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.addColumn('Comments', 'userId', {
+    await queryInterface.addColumn('Comments', 'Userid', {
       type: Sequelize.INTEGER,
     })
-    await queryInterface.addColumn('Comments', 'photoId', {
+    await queryInterface.addColumn('Comments', 'PhotoId', {
       type: Sequelize.INTEGER,
     })
 
     await queryInterface.addConstraint('Comments', {
-      fields: ['userId'],
+      fields: ['Userid'],
       type: 'foreign key',
       name : 'user_id_fk',
       references : {
@@ -23,7 +23,7 @@ module.exports = {
     })
 
     await queryInterface.addConstraint('Comments', {
-      fields: ['photoId'],
+      fields: ['PhotoId'],
       type: 'foreign key',
       name : 'photo_id_fk',
       references : {
@@ -39,7 +39,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     await queryInterface.removeColumn('Comments', 'user_id_fk')
     await queryInterface.removeColumn('Comments', 'photo_id_fk')
-    await queryInterface.removeColumn('Comments', 'userId')
-    await queryInterface.removeColumn('Comments', 'photoId')
+    await queryInterface.removeColumn('Comments', 'Userid')
+    await queryInterface.removeColumn('Comments', 'PhotoId')
   }
 };
