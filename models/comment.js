@@ -11,10 +11,29 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Comment.belongsTo(models.User, { foreignKey: 'UserId' })
+      Comment.belongsTo(models.Photo, { foreignKey: 'PhotoId' })
     }
   }
   Comment.init({
-    comment: DataTypes.TEXT
+    comment: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : 'Comment cannot be empty'
+        }
+      }
+    },
+    PhotoId : {
+      type : DataTypes.INTEGER,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : 'PhotoId cannot be empty'
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Comment',
