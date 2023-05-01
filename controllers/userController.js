@@ -2,6 +2,7 @@ const { User } = require('../models')
 
 const { comparePassword } = require('../helpers/bcrypt')
 const { generateToken } = require('../helpers/jwt')
+const { hashPassword } = require('../helpers/bcrypt')
 
 class userController {
     //get all users
@@ -80,15 +81,16 @@ class userController {
         }
     }
 
-    //edit user
+    //edit user with hash password
     static async updateUser(req, res, next) {
         try {
-            const { full_name, email, password, username, profile_img_url, age, phone_number } = req.body
             const id = req.params.id
+            const { full_name, email, password, username, profile_img_url, age, phone_number } = req.body
+            const hashedPassword = hashPassword(password)
             const data = await User.update({
                 full_name,
                 email,
-                password,
+                password: hashedPassword,
                 username,
                 profile_img_url,
                 age,
