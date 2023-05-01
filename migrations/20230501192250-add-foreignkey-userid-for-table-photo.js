@@ -16,18 +16,23 @@ module.exports = {
     await queryInterface.addConstraint('Photos', {
       fields: ['UserId'],
       type: 'foreign key',
-      name : 'user_id_fk',
-      references : {
-        table : 'Users',
-        field : 'id'
+      name: 'user_id_fk',
+      references: {
+        table: 'Users',
+        field: 'id'
       },
-      onDelete : 'cascade',
-      onUpdate : 'cascade'
-
+      onDelete: 'cascade',
+      onUpdate: 'cascade'
     })
   },
 
   async down (queryInterface, Sequelize) {
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
     await queryInterface.removeConstraint('Photos', 'user_id_fk')
     await queryInterface.removeColumn('Photos', 'UserId')
   }

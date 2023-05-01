@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Socialmedia', [
+    await queryInterface.bulkInsert('SocialMedia', [
       {
         name: 'Instagram',
         social_media_url: 'https://www.instagram.com/instagram/',
@@ -35,5 +35,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+      await queryInterface.bulkDelete('SocialMedia', null, {})
   }
 };

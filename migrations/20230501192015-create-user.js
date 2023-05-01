@@ -21,7 +21,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      profile_image_url: {
+      profile_img_url: {
         type: Sequelize.TEXT
       },
       age: {

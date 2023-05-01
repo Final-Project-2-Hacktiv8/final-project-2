@@ -6,7 +6,7 @@ const data = {
   email : 'admin',
   username: 'admin',
   password: hashPassword('admin'),
-  profile_image_url: 'https://i.pinimg.com/originals/0c/0d/0d/0c0d0d0c0d0d0c0d0d0d0d0d0d0d0d0d.jpg',
+  profile_img_url: 'https://i.pinimg.com/originals/0c/0d/0d/0c0d0d0c0d0d0c0d0d0d0d0d0d0d0d0d.jpg',
   age: 20,
   phone_number: 1234567890,
   createdAt: new Date(),
