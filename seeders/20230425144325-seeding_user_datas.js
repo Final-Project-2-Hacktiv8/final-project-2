@@ -1,5 +1,5 @@
 'use strict';
-const hashPassword = require('../helpers/hashedPassword')
+const {hashPassword} = require('../helpers/bcrypt')
 const data = {
   full_name: 'admin',
   email : 'admin',
