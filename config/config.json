@@ -3,8 +3,9 @@
     "username": "postgres",
     "password": "cukis12345",
     "database": "mygram",
-    "host": "localhost",
-    "dialect": "postgres"
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port" : 5432
   },
   "test": {
     "username": "root",
@@ -17,7 +18,8 @@
     "username": "postgres",
     "password": "cukis12345",
     "database": "mygram",
-    "host": "localhost",
-    "dialect": "postgres"
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port" : 5432
   }
 }
