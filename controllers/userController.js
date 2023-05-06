@@ -40,6 +40,7 @@ class userController {
             }
             res.status(201).json(response)
         } catch (err) {
+            console.log(err);
             res.status(err?.code || 500).json(err)
         }
     }
@@ -77,6 +78,7 @@ class userController {
             res.status(200).json({ access_token })
             
         } catch (err) {
+            console.log(err);
             res.status(err?.code || 500).json({ message: err?.message || 'Internal server error' })
         }
     }
