@@ -18,6 +18,11 @@ app.use('/photos', photoRouter);
 app.use('/comment', commentRouter);
 app.use('/socialmedia', socialmediaRouters)
 
+app.get('/', (req, res) => {
+    res.send('selamat datang')
+})
+
+
 //koneksikan ke database yang ada di config
 // const { sequelize } = require('./models');
 // sequelize.sync({ force: false })
