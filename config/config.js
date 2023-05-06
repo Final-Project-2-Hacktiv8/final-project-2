@@ -1,3 +1,5 @@
+const { sequelize } = require("../models")
+
 require("dotenv").config()
 
 const config = {
@@ -18,5 +20,11 @@ const config = {
     port: process.env.DB_PORT,
   }
 }
+
+const db = new sequelize(DB_URL, {
+  define : {
+    timestapms : false
+  }
+})
 
 module.exports = config
