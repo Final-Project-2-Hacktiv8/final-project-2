@@ -28,3 +28,4 @@ const db = new sequelize(DB_URL, {
 })
 
 module.exports = config
+module.exports = db
