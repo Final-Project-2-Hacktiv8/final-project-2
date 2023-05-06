@@ -21,11 +21,5 @@ const config = {
   }
 }
 
-const db = new sequelize(DB_URL, {
-  define : {
-    timestapms : false
-  }
-})
 
 module.exports = config
-module.exports = db
