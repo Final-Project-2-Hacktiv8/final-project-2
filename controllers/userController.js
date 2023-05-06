@@ -14,6 +14,7 @@ class userController {
             console.log(err);
             res.status(err?.code || 500).json(err)
             res.status(500).json(err)
+            next(err)
         }
     }
     
