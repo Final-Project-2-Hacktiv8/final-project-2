@@ -8,7 +8,8 @@
     "start": "nodemon app.js",
     "db:create": "NODE_ENV=development npx sequelize db:create",
     "db:migrate": "NODE_ENV=development npx sequelize db:migrate",
-    "db:seed:all": "NODE_ENV=development npx sequelize db:seed:all"
+    "db:seed:all": "NODE_ENV=development npx sequelize db:seed:all",
+    "db:migrate:prod" : "NODE_ENV=production npx sequelize db:migrate"
   },
   "author": "krisna",
   "license": "ISC",
