@@ -19,14 +19,14 @@ app.use('/comment', commentRouter);
 app.use('/socialmedia', socialmediaRouters)
 
 //koneksikan ke database yang ada di config
-const { sequelize } = require('./models');
-sequelize.sync({ force: false })
-    .then(() => {
-        console.log('Database connected');
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+// const { sequelize } = require('./models');
+// sequelize.sync({ force: false })
+//     .then(() => {
+//         console.log('Database connected');
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
