@@ -83,8 +83,9 @@ class userController {
             
         } catch (err) {
             // console.log(err);
-            res.status(err?.code || 500).json({ message: err?.message || 'Internal server error' })
+            // res.status(err?.code || 500).json({ message: err?.message || 'Internal server error' })
             res.status(500).json(err)
+            next(err)
         }
     }
 
