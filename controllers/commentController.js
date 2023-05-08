@@ -40,7 +40,7 @@ class commentController {
             })
             res.status(200).json(data)
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -68,7 +68,7 @@ class commentController {
                 res.status(500).json(err)
             })
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -84,7 +84,7 @@ class commentController {
             })
             res.status(200).json({message: 'Your comment has been successfully deleted'})
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }

@@ -18,7 +18,7 @@ class socialmediaController {
                 res.status(500).json(err)
             })
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             res.status(err?.code || 500).json(err)
         }
     }
@@ -34,7 +34,7 @@ class socialmediaController {
             })
             res.status(200).json(data)
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -62,7 +62,7 @@ class socialmediaController {
                 res.status(500).json(err)
             })
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -78,7 +78,7 @@ class socialmediaController {
             })
             res.status(200).json({message: 'Social Media has been deleted'})
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }

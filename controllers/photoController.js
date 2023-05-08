@@ -25,7 +25,7 @@ class photoController {
 
         } catch (err) {
             res.status(err?.code || 500).json(err)
-            console.log(err);
+            // console.log(err);
         }
     }
 
@@ -40,7 +40,7 @@ class photoController {
             })
             res.status(200).json(data)
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -56,7 +56,7 @@ class photoController {
             })
             res.status(200).json(data)
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -83,7 +83,7 @@ class photoController {
                 res.status(500).json(err)
             })
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -104,7 +104,7 @@ class photoController {
                 res.status(500).json(err)
             })
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }

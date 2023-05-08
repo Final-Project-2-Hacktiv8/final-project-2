@@ -42,7 +42,7 @@ class userController {
             }
             res.status(201).json(response)
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             res.status(err?.code || 500).json(err)
             res.status(500).json(err)
         }
@@ -70,6 +70,7 @@ class userController {
                     code : 400,
                     message : 'Invalid email/password'
                 }
+                return next(err)
             }
 
             const response = {
@@ -81,7 +82,7 @@ class userController {
             res.status(200).json({ access_token })
             
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             res.status(err?.code || 500).json({ message: err?.message || 'Internal server error' })
             res.status(500).json(err)
         }
@@ -109,7 +110,7 @@ class userController {
             })
             res.status(200).json(data[1][0])
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
@@ -125,7 +126,7 @@ class userController {
             })
             res.status(200).json({ message: 'your account has been successfully deleted' })
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err)
         }
     }
