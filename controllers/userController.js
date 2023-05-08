@@ -9,7 +9,21 @@ class userController {
   static async getAllUsers(req, res, next) {
     try {
       const users = await User.findAll();
-      res.status(200).json(users);
+      const mapuser = users.map((user) => {
+        return {
+          id: user.id,
+          full_name: user.full_name,
+          email: user.email,
+          password: user.password,
+          username: user.username,
+          profile_img_url: user.profile_img_url,
+          age: user.age,
+          phone_number: user.phone_number,
+        }
+      })
+      res.status(200).json({
+        users: mapuser,
+      });
     } catch (err) {
       console.log(err);
       next(err);
@@ -105,24 +119,22 @@ class userController {
         phone_number,
       } = req.body;
       const hashedPassword = hashPassword(password);
-      const data = await User.update(
-        {
-          full_name,
-          email,
-          password: hashedPassword,
-          username,
-          profile_img_url,
-          age,
-          phone_number,
-        },
-        {
-          where: {
-            id: id,
-          },
-          returning: true,
-        }
-      );
-      res.status(200).json(data[1][0]);
+     const updateUser = await User.update({
+        full_name,
+        email,
+        password: hashedPassword,
+        username,
+        profile_img_url,
+        age,
+        phone_number,
+     },{
+        where: {
+          id: id,
+        }, returning: true
+     });
+      res.status(200).json({
+        users : updateUser[1]
+      });
     } catch (err) {
       console.log(err);
       next(err);
