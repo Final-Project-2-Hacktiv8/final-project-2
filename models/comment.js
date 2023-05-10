@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty : {
           args : true,
           msg : 'PhotoId cannot be empty'
+        },
+        isInt : {
+          args : true,
+          msg : 'PhotoId must be integer'
         }
       }
     }
