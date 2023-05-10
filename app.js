@@ -8,6 +8,7 @@ const commentRouters = require("./routers/commentRouters");
 const socialMediaRouters = require("./routers/socialMediaRouters");
 const env = process.env.NODE_ENV || "development";
 
+app.use(express.static("public"))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,7 +18,8 @@ app.use("/comments", commentRouters);
 app.use("/socialmedias", socialMediaRouters);
 
 app.get("/", (req, res) => {
-  res.send("welcome to my API");
+  res.sendFile(__dirname + "/index.html");
+  
 });
 
 app.listen(port, () => {
