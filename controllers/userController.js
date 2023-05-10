@@ -25,7 +25,7 @@ class userController {
         users: mapuser,
       });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       next(err);
     }
   }
@@ -136,7 +136,7 @@ class userController {
         users : updateUser[1]
       });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       next(err);
     }
   }
@@ -154,7 +154,7 @@ class userController {
         .status(200)
         .json({ message: "your account has been successfully deleted" });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       next(err);
     }
   }

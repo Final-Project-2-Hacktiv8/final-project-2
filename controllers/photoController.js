@@ -26,8 +26,10 @@ class photoController {
                 photos: mapPhoto,
             });
         } catch (err) {
-            console.log(err);
+            // console.log(err);
+            res.status(500).json(err);
             next(err);
+            
         }
     }
 
@@ -50,7 +52,7 @@ class photoController {
                 });
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             return res.status(401).json(err);
         }
     }
@@ -77,7 +79,7 @@ class photoController {
                 });
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             return res.status(401).json(err);
         }
     }
@@ -97,7 +99,7 @@ class photoController {
                 });
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             return res.status(401).json(err);
         }
     }

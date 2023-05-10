@@ -34,7 +34,7 @@ class commentController {
                 comments: mapComment,
             });
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             next(err);
         }
     }
@@ -57,7 +57,7 @@ class commentController {
                 });
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             return res.status(401).json(err);
         }
     }
@@ -78,7 +78,7 @@ class commentController {
                 });
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             return res.status(401).json(err);
         }
     }
@@ -94,7 +94,7 @@ class commentController {
                 });
             }
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             return res.status(401).json(err);
         }
     }

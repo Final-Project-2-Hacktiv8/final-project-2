@@ -18,7 +18,7 @@ class SocialMediaController {
         });
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       return res.status(401).json(err);
     }
   }
@@ -49,7 +49,7 @@ class SocialMediaController {
         });
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       res.status(401).json(err);
     }
   }
@@ -76,7 +76,7 @@ class SocialMediaController {
         });
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       return res.status(401).json(err);
     }
   }
@@ -94,7 +94,7 @@ class SocialMediaController {
         });
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       return res.status(401).json(err);
     }
   }
