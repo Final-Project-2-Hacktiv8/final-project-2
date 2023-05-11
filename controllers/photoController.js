@@ -1,10 +1,12 @@
-const {Photo, User} = require('../models');
+const {Photo, User, Comment} = require('../models');
 
 class photoController {
     //get all photos
     static async getAllPhotos(req, res, next) {
         try {
-            const photos = await Photo.findAll({include : User});
+            const photos = await Photo.findAll({include : [User, Comment]});
+            //ambil comment berdasarkan user id
+            const comments = await Comment.findAll({where : {PhotoId : res.locals.user.id}});
             const mapPhoto = photos.map((photo) => {
                 return {
                     id: photo.id,
@@ -14,6 +16,18 @@ class photoController {
                     UserId: photo.UserId,
                     createdAt: photo.createdAt,
                     updatedAt: photo.updatedAt,
+                    Comment: {
+                        comments: comments.map((comment) => {
+                            return {
+                                id: comment.UserId,
+                                comment: comment.comment,
+                                }
+                            }),
+                    
+                        User: {
+                            username : photo.User.username,
+                        }
+                    },
                     User: {
                         id: photo.User.id,
                         username: photo.User.username,
@@ -26,7 +40,7 @@ class photoController {
                 photos: mapPhoto,
             });
         } catch (err) {
-            // console.log(err);
+            console.log(err);
             res.status(500).json(err);
             next(err);
             
