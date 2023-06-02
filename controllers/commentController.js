@@ -32,11 +32,11 @@ class commentController {
                     profile_img_url: comment.User?.profile_img_url,
                     age: comment.User?.age,
                     phone_number: comment.User?.phone_number,
-                  }
+                  },
                 };
               });
               
-              res.status(200).json({ comments : response[0] });
+              res.status(200).json({ comments : response });
         } catch (err) {
             // console.log(err);
             next(err);
