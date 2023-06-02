@@ -49,7 +49,13 @@ class commentController {
                 comment,
                 PhotoId,
             };
-
+            const photo = await Photo.findOne({ where: { id: PhotoId } });
+            if (!photo) {
+                return res.status(404).json({
+                    status: 'failed',
+                    message: 'Photo not found',
+                });
+            }
             const newComment = await Comment.create(data, { returning: true });
             if (newComment) {
                 res.status(201).json({
