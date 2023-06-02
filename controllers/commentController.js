@@ -4,35 +4,39 @@ class commentController {
     //get all comments include user and photo
     static async getAllComments(req, res, next) {
         try {
-            const comments = await Comment.findAll({include : [User, Photo]});
-            const mapComment = comments.map((comment) => {
+            const comments = await Comment.findAll({
+                include: [User, Photo],
+              });
+              
+              const response = comments.map((comment) => {
                 return {
-                    id: comment.id,
-                    comment: comment.comment,
-                    UserId: comment.UserId,
-                    PhotoId: comment.PhotoId,
-                    createdAt: comment.createdAt,
-                    updatedAt: comment.updatedAt,
-                    Photo: {
-                        id: comment.Photo.id,
-                        title: comment.Photo.title,
-                        caption: comment.Photo.caption,
-                        poster_image_url: comment.Photo.poster_image_url,
-                        UserId: comment.Photo.UserId,
-                        createdAt: comment.Photo.createdAt,
-                        updatedAt: comment.Photo.updatedAt,
-                    },
-                    User: {
-                        id: comment.User.id,
-                        username: comment.User.username,
-                        profile_img_url: comment.User.profile_img_url,
-                    }
-                   
-                }
-            })
-            res.status(200).json({
-                comments: mapComment,
-            });
+                  id: comment.id,
+                  comment: comment.comment,
+                  UserId: comment.UserId,
+                  PhotoId: comment.PhotoId,
+                  createdAt: comment.createdAt,
+                  updatedAt: comment.updatedAt,
+                  Photo: {
+                    id: comment.Photo?.id,
+                    title: comment.Photo?.title,
+                    description: comment.Photo?.description,
+                    photo_url: comment.Photo?.photo_url,
+                    UserId: comment.Photo?.UserId,
+                  },
+
+                  User: {
+                    id: comment.User?.id,
+                    full_name: comment.User?.full_name,
+                    email: comment.User?.email,
+                    username: comment.User?.username,
+                    profile_img_url: comment.User?.profile_img_url,
+                    age: comment.User?.age,
+                    phone_number: comment.User?.phone_number,
+                  }
+                };
+              });
+              
+              res.status(200).json({ comments : response[0] });
         } catch (err) {
             // console.log(err);
             next(err);
