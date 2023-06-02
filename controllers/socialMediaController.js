@@ -12,9 +12,17 @@ class SocialMediaController {
       };
 
       const newSocmed = await SocialMedia.create(data, { returning: true });
+      const response = {
+        id: newSocmed.id,
+        name: newSocmed.name,
+        social_media_url: newSocmed.social_media_url,
+        UserId: newSocmed.UserId,
+        createdAt: newSocmed.createdAt,
+        updatedAt: newSocmed.updatedAt,
+      }
       if (newSocmed) {
         res.status(201).json({
-          social_media: newSocmed,
+          social_media: response,
         });
       }
     } catch (err) {
@@ -45,7 +53,7 @@ class SocialMediaController {
       if (allSocmed) {
         // console.log(allSocmed);
         res.status(200).json({
-          social_medias,
+          social_medias
         });
       }
     } catch (err) {
@@ -70,9 +78,16 @@ class SocialMediaController {
       );
 
       if (updatedUser) {
-        console.log(updatedUser);
+        const response = {
+          id: updatedUser[1][0].id,
+          name: updatedUser[1][0].name,
+          social_media_url: updatedUser[1][0].social_media_url,
+          UserId: updatedUser[1][0].UserId,
+          createdAt: updatedUser[1][0].createdAt,
+          updatedAt: updatedUser[1][0].updatedAt,
+        }
         return res.status(200).json({
-          social_medias: updatedUser[1],
+          social_medias: response,
         });
       }
     } catch (err) {

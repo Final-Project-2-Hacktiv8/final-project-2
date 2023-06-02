@@ -36,7 +36,7 @@ class commentController {
                 };
               });
               
-              res.status(200).json({ comments : response });
+              res.status(200).json({ comments: response });
         } catch (err) {
             // console.log(err);
             next(err);
@@ -82,9 +82,17 @@ class commentController {
             };
 
             const updateComment = await Comment.update(data, { where: { id }, returning: true });
+            const response = {
+                id: updateComment[1][0].id,
+                comment: updateComment[1][0].comment,
+                UserId: updateComment[1][0].UserId,
+                PhotoId: updateComment[1][0].PhotoId,
+                createdAt: updateComment[1][0].createdAt,
+                updatedAt: updateComment[1][0].updatedAt,
+            }
             if (updateComment) {
                 res.status(201).json({
-                    comment: updateComment[1],
+                    comment: response,
                 });
             }
         } catch (err) {
